@@ -1,0 +1,6 @@
+{
+  "name": "Pandoku",
+  "description": "Real-time head-to-head multiplayer spatial logic puzzle inspired by MeowDoku, with guaranteed unique-solution boards and speed-based QuizUp scoring.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

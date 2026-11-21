@@ -1,0 +1,317 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  html,
+  body {
+    font-family: var(--font-sans);
+    background-color: #DFF2E6;
+    color: #18261E;
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Soft borderless storybook game surfaces (replaces harsh React-style grey bordered cards) */
+.toy-surface {
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow:
+    0 4px 0 rgba(28, 72, 46, 0.08),
+    0 10px 24px rgba(24, 62, 40, 0.07),
+    inset 0 2px 0 rgba(255, 255, 255, 0.9);
+}
+
+.toy-well {
+  background: rgba(215, 236, 223, 0.58);
+  box-shadow: inset 0 2px 5px rgba(22, 62, 40, 0.09);
+}
+
+@keyframes conflict-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-3px);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+  80% {
+    transform: translateX(-2px);
+  }
+}
+
+.animate-conflict-shake {
+  animation: conflict-shake 240ms ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-conflict-shake {
+    animation: none;
+  }
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Campaign Living Scene GPU-accelerated keyframes (negative animation-delay starts elements mid-motion on frame 1) */
+@keyframes pandoku-drift-ltr {
+  0% {
+    transform: translate3d(-150px, 0, 0);
+  }
+  100% {
+    transform: translate3d(460px, 0, 0);
+  }
+}
+
+@keyframes pandoku-drift-rtl {
+  0% {
+    transform: translate3d(450px, 0, 0);
+  }
+  100% {
+    transform: translate3d(-130px, 0, 0);
+  }
+}
+
+@keyframes pandoku-sun-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pandoku-sun-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.56;
+  }
+  50% {
+    transform: scale(1.22);
+    opacity: 0.88;
+  }
+}
+
+@keyframes pandoku-wing-flap {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(-0.55);
+  }
+}
+
+@keyframes pandoku-bird-bob {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -9px, 0);
+  }
+}
+
+@keyframes pandoku-butterfly-wings {
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.24);
+  }
+}
+
+@keyframes pandoku-butterfly-dance {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(-6deg);
+  }
+  25% {
+    transform: translate3d(18px, -14px, 0) rotate(8deg);
+  }
+  50% {
+    transform: translate3d(34px, -4px, 0) rotate(-4deg);
+  }
+  75% {
+    transform: translate3d(14px, 10px, 0) rotate(7deg);
+  }
+}
+
+@keyframes pandoku-sway {
+  0%, 100% {
+    transform: rotate(-3.4deg);
+  }
+  50% {
+    transform: rotate(4.2deg);
+  }
+}
+
+@keyframes pandoku-leaf-flutter {
+  0%, 100% {
+    transform: rotate(-7deg);
+  }
+  50% {
+    transform: rotate(9deg);
+  }
+}
+
+@keyframes pandoku-twinkle {
+  0%, 100% {
+    transform: scale(0.55);
+    opacity: 0.32;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+}
+
+@keyframes pandoku-shooting-star {
+  0%, 76% {
+    transform: translate3d(260px, -20px, 0) rotate(-28deg);
+    opacity: 0;
+  }
+  80% {
+    opacity: 0.95;
+  }
+  92% {
+    transform: translate3d(-60px, 145px, 0) rotate(-28deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(-60px, 145px, 0) rotate(-28deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pandoku-water-shimmer {
+  0%, 100% {
+    transform: translate3d(-14px, 0, 0) scaleX(0.45);
+    opacity: 0.24;
+  }
+  50% {
+    transform: translate3d(14px, 0, 0) scaleX(0.95);
+    opacity: 0.72;
+  }
+}
+
+@keyframes pandoku-mist-glide {
+  0%, 100% {
+    transform: translate3d(-10%, 0, 0);
+    opacity: 0.24;
+  }
+  50% {
+    transform: translate3d(10%, 0, 0);
+    opacity: 0.48;
+  }
+}
+
+@keyframes pandoku-float-bob {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -5px, 0);
+  }
+}
+
+@keyframes pandoku-awning-sway {
+  0%, 100% {
+    transform: rotate(-1.4deg);
+  }
+  50% {
+    transform: rotate(1.4deg);
+  }
+}
+
+/* Occasional asynchronous diagonal gloss sweep across earned campaign stars (~every 9–14s) */
+@keyframes pandoku-star-shine {
+  0%, 84% {
+    transform: translate3d(-44px, -10px, 0) rotate(26deg);
+    opacity: 0;
+  }
+  87% {
+    opacity: 0.96;
+  }
+  95% {
+    transform: translate3d(44px, 10px, 0) rotate(26deg);
+    opacity: 0.96;
+  }
+  100% {
+    transform: translate3d(50px, 12px, 0) rotate(26deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pandoku-star-glint {
+  0%, 86%, 100% {
+    transform: scale(0.1) rotate(0deg);
+    opacity: 0;
+  }
+  91% {
+    transform: scale(1.25) rotate(42deg);
+    opacity: 1;
+  }
+  96% {
+    transform: scale(0.2) rotate(80deg);
+    opacity: 0;
+  }
+}
+
+/* Custom Kid-Friendly Always-Visible Candy Scrollbar so children immediately see scrollable areas */
+.kid-scrollbar {
+  scrollbar-width: auto;
+  scrollbar-color: #26B368 #E2EFE6;
+  scrollbar-gutter: stable;
+}
+
+.kid-scrollbar::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+.kid-scrollbar::-webkit-scrollbar-track {
+  background: #E2EFE6;
+  border-radius: 999px;
+  border: 2px solid #F3F9F5;
+}
+
+.kid-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #43D684 0%, #1E9D5A 100%);
+  border-radius: 999px;
+  border: 2px solid #E2EFE6;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.45);
+}
+
+.kid-scrollbar::-webkit-scrollbar-thumb:hover,
+.kid-scrollbar::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #2EC471 0%, #168047 100%);
+}
+
